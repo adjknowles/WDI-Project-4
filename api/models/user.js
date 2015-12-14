@@ -1,5 +1,5 @@
-var mongoose = require("mongoose");
-var bcrypt   = require('bcrypt-nodejs');
+var mongoose       = require("mongoose");
+var bcrypt         = require('bcrypt-nodejs');
 var Recommendation = mongoose.model('Recommendation');
 
 var userSchema = new mongoose.Schema({

@@ -12,6 +12,7 @@ var expressJWT     = require('express-jwt');
 var app            = express();
 
 var config         = require('./config/config');
+var Recommendations= require('./models/recommendation')
 var User           = require('./models/user');
 var secret         = require('./config/config').secret;
 
