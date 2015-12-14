@@ -1,14 +1,15 @@
 var mongoose = require("mongoose");
 var bcrypt   = require('bcrypt-nodejs');
+var Recommendation = mongoose.model('Recommendation');
 
-var userSchema = mongoose.Schema({
+var userSchema = new mongoose.Schema({
   local: {
     name: { type: String },
     image: { type: String },
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true }
   },
-  recommendations: [{ type: mongoose.Schema.ObjectId, ref: 'Recommendation' }]
+  recommendations: [Recommendation.schema]
 });
 
 userSchema.statics.encrypt = function(password) {
@@ -19,4 +20,5 @@ userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 }
 
-module.exports = mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);
+module.exports = User;
