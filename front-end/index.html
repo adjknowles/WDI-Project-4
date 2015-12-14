@@ -49,12 +49,12 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Add Recommendation</a></li>
-            <li><a href="#">Recommendations</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="addRecommendation">Add Recommendation</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="recommendations">Recommendations</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="profile">Profile</a></li>
+            <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="register">Register</a></li>
+            <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="login">Login</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref="home" ng-click="users.logout()">Logout</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

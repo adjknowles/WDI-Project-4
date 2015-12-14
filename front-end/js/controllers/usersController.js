@@ -65,7 +65,7 @@ function UsersController(User, TokenService, $state, CurrentUser, $auth){
   // Checks if the user is logged in, runs every time the page is loaded
   if (CurrentUser.getUser()) {
     self.getUsers();
-    // self.user = TokenService.decodeToken();
+    self.user = TokenService.decodeToken();
     // console.log(self.user);
   }
 

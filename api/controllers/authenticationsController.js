@@ -26,6 +26,8 @@ function register(req, res, next) {
 
 
 function login(req, res, next) {
+  console.log(req.body);
+
   User.findOne({
     "local.email": req.body.email
   }, function(err, user) {

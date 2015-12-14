@@ -88,7 +88,7 @@ var user1 = new User({
     name: "Bernice Smith",
     image: "http://www.missinspiration.co.uk/wp-content/uploads/2012/11/Lydia-profile-e1353448732559.jpg",
     email: "bernice@bernice.com",
-    password: "password"
+    password: User.encrypt("password")
   }
 });
 
