@@ -2,6 +2,7 @@ angular
   .module('hometown', ['ngResource', 'angular-jwt', 'ui.router', 'satellizer'])
   .constant('API', 'http://localhost:3000/api')
   .config(MainRouter)
+  
   .config(function($httpProvider){
     $httpProvider.interceptors.push('authInterceptor')
   })
