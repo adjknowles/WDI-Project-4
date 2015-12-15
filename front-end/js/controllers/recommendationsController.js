@@ -1,34 +1,48 @@
 angular
-  .module('hometown')
-  .controller('RecommendationsController', RecommendationsController);
+.module('hometown')
+.controller('RecommendationsController', RecommendationsController);
 
-RecommendationsController.$inject = ["Recommendation", "User", "CurrentUser"]
-function RecommendationsController(Recommendation, User, CurrentUser){
+RecommendationsController.$inject = ["Recommendation", "User", "CurrentUser", "TokenService", "$window"]
+function RecommendationsController(Recommendation, User, CurrentUser, TokenService, $window){
   var self = this;
 
   self.all            = [];
   self.users          = [];
-  self.recommendation = {}; 
+
+  if ($window.localStorage['auth-token']) {
+    self.creator = TokenService.decodeToken();
+    self.recommendation = {
+      creator_id: self.creator._id
+    };
+  }
 
   self.getRecommendations = function(){
     Recommendation.query(function(data){
+      self.addPins(data);
       return self.all = data;
     })
   }
 
   self.getUsers = function(){
-     User.query(function(data){
-      return self.users = data.users;
-    });
-  }
+   User.query(function(data){
+    return self.users = data.users;
+  });
+ }
 
-  self.add = function(){
-    var recommendation = { recommendation: self.recommendation }
-    Recommendation.save(recommendation, function(data){
+ self.add = function(){
+    // self.recommendation.creator_id = self.creator._id;
+    Recommendation.save(self.recommendation, function(data){
       self.all.push(data);
       self.recommendation = {};
     })
   }
+
+  var map;
+  var marker;
+  var infowindow;
+
+  var input = $('#inputLocation');
+  var autocomplete = new google.maps.places.Autocomplete(input);
 
   self.init = function(){
     var canvas = document.getElementById('googleMap');
@@ -42,22 +56,57 @@ function RecommendationsController(Recommendation, User, CurrentUser){
       mapTypeId:   google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(canvas, mapOptions);
-    console.log("length: " + self.all.length)
+    self.map = new google.maps.Map(canvas, mapOptions);
+    var myLatLng = {lat: -25.363, lng: 131.044};
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
 
-    for (var i = 0; i < self.all.length; i++){
-      self.addPin(self.all[i]);
-    }
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+  }
+
+  google.maps.event.addListener(autocomplete, 'place_changed', function(){
+    self.place = autocomplete.getPlace();
+  })
+
+  self.addPins = function(data){
+    data.forEach(function(recommendation){
+      self.addPin(recommendation);
+    });
   }
 
   self.addPin = function(recommendation){
-    console.log("arrived")
-    console.log(recommendation.description);
+    var myLatLng = {lat: recommendation.latitude, lng: recommendation.longitude}
+    console.log(myLatLng)
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: self.map,
+      title: 'Hello World!'
+    });
+
+    marker.addListener('click', function(){
+      self.markerClick(marker, recommendation);
+    });
+  }
+
+  self.markerClick = function(marker, recommendation) {
+    if(infowindow) infowindow.close();
+
+    infowindow = new google.maps.InfoWindow({
+      content: '<div class="infoWindow">'+
+      '<h2>' + recommendation.category + '</h2>'+
+      '</div>'
+    });
+
+    self.map.setCenter(marker.getPosition());
+    infowindow.open(self.map, marker);
   }
 
   self.getRecommendations();
   self.getUsers();
   self.init();
 
-  console.log(CurrentUser.getUser());
 }

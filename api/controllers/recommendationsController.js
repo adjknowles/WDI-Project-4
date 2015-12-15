@@ -9,10 +9,10 @@ function recommendationsIndex(req, res){
 }
 
 function recommendationsCreate(req, res){
-  var recommendation = new Recommendation(req.body.recommendation);
+  var recommendation = new Recommendation(req.body);
   recommendation.save(function(err){
     if (err) return res.status(500).send(err);
-    var id = req.body.recommendation.user_id;
+    var id = req.body.creator_id;
     User.findById(id, function(err, user){
        user.recommendations.push(recommendation);
        user.save();
