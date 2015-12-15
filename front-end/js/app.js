@@ -15,6 +15,12 @@ angular
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 
+  function mapPage(){
+    event.preventDefault();
+    $("section").hide();
+    return $("#map").show();
+  }
+
   function MainRouter($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -40,6 +46,11 @@ angular
       .state('recommendations', {
         url: "/recommendations",
         templateUrl: "recommendations.html",
+        controller: "RecommendationsController as recommendations"
+      })
+      .state('newRecommendations', {
+        url: "/recommendations/new",
+        templateURL: "newRecommendations.html",
         controller: "RecommendationsController as recommendations"
       })
 
