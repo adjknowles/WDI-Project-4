@@ -7,7 +7,10 @@ angular
     $httpProvider.interceptors.push('authInterceptor')
   })
   .config(function($authProvider) {
-    $authProvider.facebook({ clientId: '1535877196647406'})
+    $authProvider.facebook({ 
+      clientId: 'facebookKey',
+      url: 'http://localhost:3000/api/auth/facebook'
+    })
   });
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
