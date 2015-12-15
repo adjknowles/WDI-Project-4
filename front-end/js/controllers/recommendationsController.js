@@ -52,7 +52,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
       zoom:        13,
       styles:      mapStyle,
       scrollwheel: false,
-      center:      center,
+      center:      {lat: 53.959702, lng: -1.087802},
       mapTypeId:   google.maps.MapTypeId.ROADMAP
     };
 
@@ -97,13 +97,37 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
     infowindow = new google.maps.InfoWindow({
       content: '<div class="infoWindow">'+
-      '<h2>' + recommendation.category + '</h2>'+
-      '</div>'
+      '<h2>' + recommendation.description + '</h2>'+
+      '</div>' + '<div>' + '<a href="'+ marker._id +'">Click here for more information</a>' + '</div>'
     });
 
     self.map.setCenter(marker.getPosition());
     infowindow.open(self.map, marker);
   }
+
+  // Autocomplete
+  function setupGoogleMaps(){
+   var fields = ["inputLocation", "posts-searchbox"]
+
+   $.each(fields, function(index, field){
+       // Search box variable
+       var searchBox = new google.maps.places.Autocomplete(document.getElementById(field));
+       // // SearchBox event listener;
+       google.maps.event.addListener(searchBox, 'place_changed', function() {
+         var place    = searchBox.getPlace();
+         var placeLat = place.geometry.location.lat();
+         var placeLng = place.geometry.location.lng();
+         document.getElementById('cityLat').value = placeLat;
+         document.getElementById('cityLng').value = placeLng;
+       })
+
+       //Clear the searchBox when we click on it; 
+       $("#" + field).on('click', function(){
+         $(this).val('');
+       })
+     })
+  }
+  setupGoogleMaps();
 
   self.getRecommendations();
   self.getUsers();

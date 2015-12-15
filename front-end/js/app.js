@@ -55,4 +55,5 @@ angular
       })
 
     $urlRouterProvider.otherwise("/");
+
   }
