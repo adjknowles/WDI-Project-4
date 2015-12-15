@@ -29,8 +29,5 @@ router.route('/recommendations/:id')
   .patch(recommendationsController.recommendationsUpdate)
   .delete(recommendationsController.recommendationsDelete)
 
-router.route('/recommendations/new')
-  .get(recommendationsController.recommendationsIndex)
-  .post(recommendationsController.recommendationsCreate)
 
 module.exports = router;

@@ -1,0 +1,8 @@
+<h1>All Recommendations</h1>
+<div ng-show="users.checkLoggedIn()">
+  <div ng-repeat="recommend in recommendations.all">
+  <h2>{{ recommend.category }}</h2>
+  <h3>{{ recommend.description }}</h3>
+  <h3><a ng-href="{{ recommend.url }}">{{ recommend.url }}</a></h3>
+  </div>
+</div>

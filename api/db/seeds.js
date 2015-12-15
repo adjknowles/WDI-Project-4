@@ -22,7 +22,7 @@ recommendation1.save(function(err, recommendation) {
 var recommendation2 = new Recommendation({
   category: "Restaurants",
   description: "Cafe Concerto",
-  url: "http://www.cafeconcerto.biz/"
+  url: "http://www.cafeconcerto.biz/",
   latitude: "53.962589",
   longitude: "-1.084367"
 })
@@ -35,7 +35,7 @@ recommendation2.save(function(err, recommendation) {
 var recommendation3 = new Recommendation({
   category: "Pubs",
   description: "Evil Eye",
-  url: "http://www.evileyelounge.com/"
+  url: "http://www.evileyelounge.com/",
   latitude: "53.961297",
   longitude: "-1.083107"
 })
@@ -48,7 +48,7 @@ recommendation3.save(function(err, recommendation) {
 var recommendation4 = new Recommendation({
   category: "Museums",
   description: "JORVIK Viking Centre",
-  url: "http://jorvik-viking-centre.co.uk/"
+  url: "http://jorvik-viking-centre.co.uk/",
   latitude: "53.957598",
   longitude: "-1.080321"
 })
@@ -61,7 +61,7 @@ recommendation4.save(function(err, recommendation) {
 var recommendation5 = new Recommendation({
   category: "Attractions",
   description: "York Minster",
-  url: "http://yorkminster.org/home.html"
+  url: "http://yorkminster.org/home.html",
   latitude: "53.962487",
   longitude: "-1.081953"
 })
@@ -74,7 +74,7 @@ recommendation5.save(function(err, recommendation) {
 var recommendation6 = new Recommendation({
   category: "Galleries",
   description: "Castle Galleries",
-  url: "http://www.castlegalleries.com/"
+  url: "http://www.castlegalleries.com/",
   latitude: "53.957155",
   longitude: "-1.080138"
 })
@@ -87,7 +87,7 @@ recommendation6.save(function(err, recommendation) {
 var recommendation7 = new Recommendation({
   category: "Parks",
   description: "Museum Gardens",
-  url: "http://www.yorkshiremuseum.org.uk/york-museum-gardens/"
+  url: "http://www.yorkshiremuseum.org.uk/york-museum-gardens/",
   latitude: "53.960972",
   longitude: "-1.086655"
 })

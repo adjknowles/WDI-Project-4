@@ -53,7 +53,7 @@
           <ul class="nav navbar-nav">
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="newRecommendation">Add Recommendation</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="newRecommendations">Add Recommendation</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="recommendations">Recommendations</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="profile">Profile</a></li>
             <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="register">Register</a></li>
@@ -67,7 +67,6 @@
 
   <section id="map" ng-controller="RecommendationsController as recommendations">
     <div id="googleMap"></div>
-    {{ recommendations.all }}
   </section>
   
   <main ui-view></main>

@@ -50,7 +50,7 @@ angular
       })
       .state('newRecommendations', {
         url: "/recommendations/new",
-        templateURL: "newRecommendations.html",
+        templateUrl: "newRecommendations.html",
         controller: "RecommendationsController as recommendations"
       })
 
