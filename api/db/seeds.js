@@ -6,6 +6,8 @@ mongoose.connect(databaseURL);
 var Recommendation = require("../models/recommendation"); 
 var User    = require("../models/user");
 
+//Bernice
+
 var recommendation1 = new Recommendation({
   category: "Cafes",
   description: "Bettys",
@@ -97,11 +99,48 @@ recommendation7.save(function(err, recommendation) {
  console.log("Recommendation saved! ", recommendation);
 })
 
+//Bob
+
+var recommendation8 = new Recommendation({
+  category: "Parks",
+  description: "Museum Gardens",
+  url: "http://www.yorkshiremuseum.org.uk/york-museum-gardens/",
+  latitude: 53.960972,
+  longitude: -1.086655
+})
+
+recommendation8.save(function(err, recommendation) {
+ if (err) return console.log(err);
+ console.log("Recommendation saved! ", recommendation);
+})
+
+var recommendation9 = new Recommendation({
+  category: "Parks",
+  description: "Museum Gardens",
+  url: "http://www.yorkshiremuseum.org.uk/york-museum-gardens/",
+  latitude: 53.960972,
+  longitude: -1.086655
+})
+
+recommendation9.save(function(err, recommendation) {
+ if (err) return console.log(err);
+ console.log("Recommendation saved! ", recommendation);
+})
+
 var user1 = new User({
   local: {
     name: "Bernice Smith",
     image: "http://www.missinspiration.co.uk/wp-content/uploads/2012/11/Lydia-profile-e1353448732559.jpg",
     email: "bernice@bernice.com",
+    password: User.encrypt("password")
+  }
+});
+
+var user2 = new User({
+  local: {
+    name: "Bob Parker",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/98/Christopher_Fabian_profile.jpg",
+    email: "bob@bob.com",
     password: User.encrypt("password")
   }
 });
@@ -115,6 +154,11 @@ user1.recommendations.push(recommendation6);
 user1.recommendations.push(recommendation7);
 
 user1.save(function(err, user) {
+ if (err) return console.log(err);
+ console.log("User saved! ", user);
+})
+
+user2.save(function(err, user) {
  if (err) return console.log(err);
  console.log("User saved! ", user);
 })

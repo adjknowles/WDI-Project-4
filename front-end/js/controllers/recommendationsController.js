@@ -2,8 +2,8 @@ angular
 .module('hometown')
 .controller('RecommendationsController', RecommendationsController);
 
-RecommendationsController.$inject = ["Recommendation", "User", "CurrentUser", "TokenService", "$window"]
-function RecommendationsController(Recommendation, User, CurrentUser, TokenService, $window){
+RecommendationsController.$inject = ["Recommendation", "User", "CurrentUser", "TokenService", "$window", '$stateParams', '$state']
+function RecommendationsController(Recommendation, User, CurrentUser, TokenService, $window, $stateParams, $state){
   var self = this;
 
   self.all            = [];
@@ -11,9 +11,12 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
   if ($window.localStorage['auth-token']) {
     self.creator = TokenService.decodeToken();
-    self.recommendation = {
-      creator_id: self.creator._id
-    };
+  }
+
+  if($stateParams.id) {
+    Recommendation.get({ id: $stateParams.id }, function(recommendation){
+      self.showRecommendation = recommendation;
+    })
   }
 
   self.getRecommendations = function(){
@@ -30,9 +33,10 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
  }
 
  self.add = function(){
-    // self.recommendation.creator_id = self.creator._id;
+    self.recommendation.creator_id = self.creator._id;
     Recommendation.save(self.recommendation, function(data){
       self.all.push(data);
+      self.addPin(data);
       self.recommendation = {};
     })
   }
@@ -40,9 +44,6 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
   var map;
   var marker;
   var infowindow;
-
-  var input = $('#inputLocation');
-  var autocomplete = new google.maps.places.Autocomplete(input);
 
   self.init = function(){
     var canvas = document.getElementById('googleMap');
@@ -67,10 +68,6 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
     // To add the marker to the map, call setMap();
     marker.setMap(map);
   }
-
-  google.maps.event.addListener(autocomplete, 'place_changed', function(){
-    self.place = autocomplete.getPlace();
-  })
 
   self.addPins = function(data){
     data.forEach(function(recommendation){
@@ -98,7 +95,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
     infowindow = new google.maps.InfoWindow({
       content: '<div class="infoWindow">'+
       '<h2>' + recommendation.description + '</h2>'+
-      '</div>' + '<div>' + '<a href="'+ marker._id +'">Click here for more information</a>' + '</div>'
+      '</div>' + '<div>' + '<a href="#/recommendations/'+ recommendation._id +'">Click here for more information</a>' + '</div>'
     });
 
     self.map.setCenter(marker.getPosition());
@@ -107,18 +104,19 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
   // Autocomplete
   function setupGoogleMaps(){
-   var fields = ["inputLocation", "posts-searchbox"]
+   var fields = ["inputLocation", "main-search-box"]
 
    $.each(fields, function(index, field){
        // Search box variable
        var searchBox = new google.maps.places.Autocomplete(document.getElementById(field));
        // // SearchBox event listener;
        google.maps.event.addListener(searchBox, 'place_changed', function() {
-         var place    = searchBox.getPlace();
-         var placeLat = place.geometry.location.lat();
-         var placeLng = place.geometry.location.lng();
-         document.getElementById('cityLat').value = placeLat;
-         document.getElementById('cityLng').value = placeLng;
+         self.place    = searchBox.getPlace();
+         self.recommendation.latitude = self.place.geometry.location.lat();
+         self.recommendation.longitude = self.place.geometry.location.lng();
+
+        var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
+        self.map.setCenter(newlatlong);
        })
 
        //Clear the searchBox when we click on it; 
@@ -127,6 +125,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
        })
      })
   }
+
   setupGoogleMaps();
 
   self.getRecommendations();
