@@ -48,6 +48,11 @@ angular
         templateUrl: "showUser.html",
         controller: "UsersController as users"
       })
+      .state('newRecommendations', {
+        url: "/recommendations/new",
+        templateUrl: "newRecommendations.html",
+        controller: "RecommendationsController as recommendations"
+      })
       .state('showRecommendation', {
         url: "/recommendations/:id",
         templateUrl: "showRecommendation.html",
@@ -58,11 +63,7 @@ angular
         templateUrl: "recommendations.html",
         controller: "RecommendationsController as recommendations"
       })
-      .state('newRecommendations', {
-        url: "/recommendations/new",
-        templateUrl: "newRecommendations.html",
-        controller: "RecommendationsController as recommendations"
-      })
+      
 
     $urlRouterProvider.otherwise("/");
 

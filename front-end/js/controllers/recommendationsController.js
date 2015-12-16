@@ -77,7 +77,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
   self.addPin = function(recommendation){
     var myLatLng = {lat: recommendation.latitude, lng: recommendation.longitude}
-    console.log(myLatLng)
+    // console.log(myLatLng)
     var marker = new google.maps.Marker({
       position: myLatLng,
       map: self.map,
@@ -104,26 +104,25 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
   // Autocomplete
   function setupGoogleMaps(){
-   var fields = ["inputLocation", "main-search-box"]
+    var field = document.getElementById("googlesearch");
+    if (!field) return false;
 
-   $.each(fields, function(index, field){
-       // Search box variable
-       var searchBox = new google.maps.places.Autocomplete(document.getElementById(field));
-       // // SearchBox event listener;
-       google.maps.event.addListener(searchBox, 'place_changed', function() {
-         self.place    = searchBox.getPlace();
-         self.recommendation.latitude = self.place.geometry.location.lat();
-         self.recommendation.longitude = self.place.geometry.location.lng();
+    var searchBox = new google.maps.places.Autocomplete(field);
+   
+    // SearchBox event listener;
+    google.maps.event.addListener(searchBox, 'place_changed', function() {
+      self.place    = searchBox.getPlace();
+      self.recommendation.latitude = self.place.geometry.location.lat();
+      self.recommendation.longitude = self.place.geometry.location.lng();
 
-        var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
-        self.map.setCenter(newlatlong);
-       })
+      var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
+      self.map.setCenter(newlatlong);
+    })
 
-       //Clear the searchBox when we click on it; 
-       $("#" + field).on('click', function(){
-         $(this).val('');
-       })
-     })
+   //Clear the searchBox when we click on it; 
+   // $("#" + field).on('click', function(){
+   //   $(this).val('');
+   // })
   }
 
   setupGoogleMaps();
