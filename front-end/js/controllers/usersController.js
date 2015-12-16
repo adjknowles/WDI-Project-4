@@ -2,8 +2,8 @@ angular
   .module('hometown')
   .controller('UsersController', UsersController);
 
-UsersController.$inject = ['User', 'TokenService', '$state', 'CurrentUser', '$auth'];
-function UsersController(User, TokenService, $state, CurrentUser, $auth){
+UsersController.$inject = ['User', 'TokenService', '$state', 'CurrentUser', '$stateParams', '$auth'];
+function UsersController(User, TokenService, $state, CurrentUser, $stateParams, $auth){
 
   var self = this;
 
@@ -18,6 +18,12 @@ function UsersController(User, TokenService, $state, CurrentUser, $auth){
   self.authenticate = function(provider) {
     $auth.authenticate(provider);
   };
+
+  if($stateParams.id) {
+    User.get({ id: $stateParams.id }, function(user){
+      self.showUser = user;
+    })
+  }
 
   // GETs all the users from the api
   function getUsers() {

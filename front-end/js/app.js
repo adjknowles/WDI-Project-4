@@ -43,6 +43,11 @@ angular
         url: "/users",
         templateUrl: "users.html"
       })
+      .state('showUser', {
+        url: "/users/:id",
+        templateUrl: "showUser.html",
+        controller: "UsersController as users"
+      })
       .state('showRecommendation', {
         url: "/recommendations/:id",
         templateUrl: "showRecommendation.html",

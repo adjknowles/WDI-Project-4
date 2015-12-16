@@ -3,23 +3,6 @@
   <form name="recommendations.newRecommendations" class="form-horizontal" ng-submit="recommendations.add()" novalidate>
 
     {{ recommendations.recommendation }}
-    
-  <!--   <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          Category
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">Cafes</a></li>
-          <li><a href="#">Restaurants</a></li>
-          <li><a href="#">Pubs</a></li>
-          <li><a href="#">Museums</a></li>
-          <li><a href="#">Attractions</a></li>
-          <li><a href="#">Galleries</a></li>
-          <li><a href="#">Parks</a></li>
-        </ul>
-      </div> -->
 
       <select ng-model="recommendations.recommendation.category">
         <option value="Cafes">Cafes</option>
@@ -51,13 +34,6 @@
           <button type="submit" class="btn btn-default">Add Recommendation</button>
         </div>
       </div>
-
-      <form class="search-form" method="post" action="/search">
-        <input type="text" name="search" id="home-searchbox" class="form-control large_button" placeholder="Search">
-        <input type="hidden" id="searchLat" name="lattitude">
-        <input type="hidden" id="searchLng" name="longitude">  
-        <button type="submit" id="search-post-button" class="large_button action_button">SEARCH</button>
-      </form>
 
     </div>
 
