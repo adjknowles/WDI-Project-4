@@ -1,9 +1,9 @@
 <div ng-show="users.checkLoggedIn()">
   <div><h2>{{ users.user.local.name | uppercase }}</h2></div>
-  <div><img ng-src="{{ users.user.local.image }}"></div>
-  <ul>
-    <li ng-repeat="recommendation in users.user.recommendations">
-      {{ recommendation.description }} {{ recommendation.latitude }}
-    </li>
+  <div><img ng-src="{{ users.user.local.image }}" width="300"></div>
+  <ul ng-repeat="recommendation in users.user.recommendations">
+    <li><h2>{{ recommendation.category }}</h2></li>
+    <li><h3>{{ recommendation.description }}</h3></li>
+    <li><a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a></li>
   </ul>
 </div>

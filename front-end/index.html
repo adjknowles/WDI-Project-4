@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">HomeTown</a>
+          <a class="navbar-brand" href="#" ui-sref-active="active" ui-sref="home">HomeTown</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,6 +67,11 @@
   <section id="map" ng-controller="RecommendationsController as recommendations">
 
   <div id="googleMap"></div>
+
+  <div class="col-sm-12" id="searchBox">
+    <input type="text" id="main-search-box" class="col-sm-2 control-label" placeholder="Find a HomeTown">
+  </div>
+
   </section>
   
   <main ui-view></main>
