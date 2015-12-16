@@ -6,7 +6,11 @@ var recommendationSchema = new mongoose.Schema({
   url: { type: String },
   address: { type: String },
   latitude: { type: Number },
-  longitude: { type: Number }
+  longitude: { type: Number },
+  user: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User' 
+  }
 });
 
 

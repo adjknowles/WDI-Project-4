@@ -19,9 +19,11 @@ function UsersController(User, TokenService, $state, CurrentUser, $stateParams, 
     $auth.authenticate(provider);
   };
 
-  if($stateParams.id) {
-    User.get({ id: $stateParams.id }, function(user){
-      self.showUser = user;
+  if ($stateParams.id) {
+    console.log($stateParams.id)
+    User.get({ id: $stateParams.id }, function(data){
+      self.showUser = data.user;
+      self.showUser.recommendations = data.recommendations;
     })
   }
 

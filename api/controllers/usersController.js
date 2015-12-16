@@ -1,4 +1,5 @@
 var User   = require('../models/user');
+var Recommendation = require('../models/recommendation');
 
 function usersIndex(req, res) {
   User.find(function(err, users){
@@ -10,8 +11,12 @@ function usersIndex(req, res) {
 function usersShow(req, res){
   User.findById(req.params.id, function(err, user){
     if (err) return res.status(404).json({message: 'Something went wrong.'});
-    res.status(200).json({ user: user });
+    Recommendation.find({ user: req.params.id }, function(err, recommendations) {
+      if (err) return res.status(505).json({message: 'Something went wrong.'});
+      res.status(200).json({ user: user, recommendations: recommendations });
+    });
   });
+  
 }
 
 function usersUpdate(req, res){

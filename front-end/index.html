@@ -55,7 +55,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="newRecommendations">Add Recommendation</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="recommendations">Recommendations</a></li>
-            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="profile">Profile</a></li>
+            <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="showUser({id: users.user._id })">Profile</a></li>
             <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="register">Register</a></li>
             <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="login">Login</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref="home" ng-click="users.logout()">Logout</a></li>
@@ -69,7 +69,7 @@
   <div id="googleMap"></div>
 
   <div class="col-sm-12" id="searchBox">
-    <input type="text" id="main-search-box" class="col-sm-2 control-label" placeholder="Find a HomeTown">
+    <input type="text" id="googlesearch" class="col-sm-2 control-label" placeholder="Find a HomeTown">
   </div>
 
   </section>

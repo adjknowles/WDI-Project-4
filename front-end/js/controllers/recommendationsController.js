@@ -8,6 +8,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
 
   self.all            = [];
   self.users          = [];
+  self.recommendation = {};
 
   if ($window.localStorage['auth-token']) {
     self.creator = TokenService.decodeToken();
@@ -33,7 +34,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
  }
 
  self.add = function(){
-    self.recommendation.creator_id = self.creator._id;
+    self.recommendation.user = self.creator._id;
     Recommendation.save(self.recommendation, function(data){
       self.all.push(data);
       self.addPin(data);

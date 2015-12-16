@@ -2,33 +2,32 @@ var Recommendation = require("../models/recommendation");
 var User = require("../models/user");
 
 function recommendationsIndex(req, res){
-  Recommendation.find({}, function(err, recommendations) {
+  Recommendation
+    .find({})
+    .populate("user").exec(function(err, recommendations) {
     if (err) return res.status(404).send(err);
     res.status(200).send(recommendations);
   });
 }
 
 function recommendationsCreate(req, res){
-  var recommendation = new Recommendation(req.body);
-  recommendation.save(function(err){
+  Recommendation.create(req.body, function(err, recommendation) {
     if (err) return res.status(500).send(err);
-    var id = req.body.creator_id;
-    User.findById(id, function(err, user){
-       user.recommendations.push(recommendation);
-       user.save();
-       return res.status(201).send(recommendation)
-    });
+    return res.status(201).send(recommendation);
   });
 }
 
 function recommendationsShow(req, res){
   var id = req.params.id;
 
-  Recommendation.findById({ _id: id }, function(err, recommendation) {
-    if (err) return res.status(500).send(err);
-    if (!recommendation) return res.status(404).send(err);
+  Recommendation
+    .findById({ _id: id })
+    .populate("user")
+    .exec(function(err, recommendation) {
+      if (err) return res.status(500).send(err);
+      if (!recommendation) return res.status(404).send(err);
 
-    res.status(200).send(recommendation);
+      res.status(200).send(recommendation);
   })
 }
 
