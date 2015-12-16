@@ -1,9 +1,22 @@
 <h1>All Recommendations</h1>
-<div ng-show="users.checkLoggedIn()">
+<!-- <div ng-show="users.checkLoggedIn()">
   <div ng-repeat="recommendation in recommendations.all">
   <h2>{{ recommendation.category }}</h2>
   <h3>{{ recommendation.description }}</h3>
   <h3><a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a></h3>
   by: {{ recommendation.user.local.name }}
+  </div>
+</div> -->
+
+
+
+<div class="panel panel-primary" ng-show="users.checkLoggedIn()" ng-repeat="recommendation in recommendations.all">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ recommendation.category }}</h3>
+  </div>
+  <div class="panel-body">
+    <h3>{{ recommendation.description }}</h3>
+    <h3><a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a></h3>
+    <h4>by: {{ recommendation.user.local.name }}</h4>
   </div>
 </div>

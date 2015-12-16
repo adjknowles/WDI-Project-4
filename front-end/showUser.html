@@ -1,9 +1,9 @@
 <div>
   <div><h2>{{ users.showUser.local.name | uppercase }}</h2></div>
   <div><img ng-src="{{ users.showUser.local.image }}" width="300"></div>
-  <ul ng-repeat="recommendation in users.showUser.recommendations">
-    <li><h2>{{ recommendation.category }}</h2></li>
-    <li><h3>{{ recommendation.description }}</h3></li>
-    <li><a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a></li>
-  </ul>
+  <div ng-repeat="recommendation in users.showUser.recommendations">
+    <h2>{{ recommendation.category }}</h2>
+    <h3>{{ recommendation.description }}</h3>
+    <a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a>
+  </div>
 </div>

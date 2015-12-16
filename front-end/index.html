@@ -13,8 +13,6 @@
   <script src="//cdn.jsdelivr.net/satellizer/0.13.1/satellizer.min.js"></script>
   <!-- Google Maps -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places"></script>
-  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpNZe0vDsxjQVggjjXAOAnnbmVNrOVDoo&libraries=places"></script>
-   Internal Files -->
   <script type="text/javascript" src="./js/map.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
   <script type="text/javascript" src="./js/services/tokenService.js"></script>
@@ -24,11 +22,10 @@
   <script type="text/javascript" src="./js/models/recommendation.js"></script>
   <script type="text/javascript" src="./js/controllers/usersController.js"></script>
   <script type="text/javascript" src="./js/controllers/recommendationsController.js"></script>
-  <script src="./vendor/assets/javascript/bootstrap.min.js"></script>
+
   <!-- Stylesheets -->
-  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-  <link rel="stylesheet" media="screen" href="./vendor/assets/stylesheets/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
@@ -36,7 +33,7 @@
 
 
   <header>
-    <nav class="navbar navbar-default">
+    <nav id="navbar" class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -67,9 +64,9 @@
   </header>
   <section id="map" ng-controller="RecommendationsController as recommendations">
 
-  <div id="googleMap"></div>
+  <div id="googleMap" ng-show="users.checkLoggedIn()"></div>
 
-  <div class="col-sm-12" id="searchBox">
+  <div class="col-sm-12" id="searchBox" ng-show="users.checkLoggedIn()">
     <input type="text" id="googlesearch" class="col-sm-2 control-label" placeholder="Find a HomeTown">
   </div>
 
