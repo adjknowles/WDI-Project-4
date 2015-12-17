@@ -1,4 +1,75 @@
 <section id="register" ng-hide="users.checkLoggedIn()">
+  <hr>
+
+  <div id="center-it">
+
+    <h1>Register</h1>
+
+    <form name="users.registerForm" class="form-horizontal" ng-submit="users.register()" novalidate>
+
+      <div>
+        <label for="inputName3" style="margin-top: 24px;">Name</label>
+      </div>
+
+      <div>
+        <input style="width: 55%; padding: 0.4%; height: 45px; line-height: 45px;" type="text" id="inputName3" placeholder="Name" ng-model="users.user.name">
+      </div>
+
+      <div>
+        <label for="inputImage3" style="margin-top: 24px;">Image URL</label>
+      </div>
+
+      <div>
+        <input style="width: 55%; padding: 0.4%; height: 45px; line-height: 45px;" type="text" id="inputImage3" placeholder="Image URL" ng-model="users.user.image">
+      </div>
+
+      <div>
+        <label for="inputEmail3" style="margin-top: 24px;">Email</label>
+      </div>
+
+      <div>
+        <input style="width: 55%; padding: 0.4%; height: 45px; line-height: 45px;" type="email" id="inputEmail3" placeholder="Email" ng-model="users.user.email" required>
+      </div>
+
+      <div class="ng-message-error" ng-messages="users.loginForm['email'].$error" ng-show="(users.loginForm.$submitted && users.loginForm['email'].$invalid)">
+        <p ng-message="required">Email is required.</p>
+      </div>
+
+      <div>
+        <label for="inputPassword3" style="margin-top: 24px;">Password</label>
+      </div>
+
+      <div> 
+        <input style="width: 55%; padding: 0.4%; height: 45px; line-height: 45px;" type="password" id="inputPassword3" placeholder="Password" ng-model="users.user.password" required>
+      </div>
+
+      <div class="ng-message-error" ng-messages="users.loginForm['password'].$error" ng-show="(users.loginForm.$submitted && users.loginForm['password'].$invalid)">
+        <p ng-message="required">Password is required.</p>
+      </div>
+
+      <br>
+
+      <button type="submit" class="btn btn-default" style="width: 55%">Register</button>
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- <section id="register" ng-hide="users.checkLoggedIn()">
   <form name="users.registerForm" class="form-horizontal" ng-submit="users.register()" novalidate>
     
     <div class="form-group">
@@ -53,4 +124,4 @@
       </div>
     </div>
   </form>
-</section>
+</section> -->
