@@ -27,7 +27,7 @@
 
   <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
   <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600,300,700' rel='stylesheet' type='text/css'>
-<!--   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'> -->
+  <!--   <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,200,600,500' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body ng-controller="UsersController as users">
@@ -35,44 +35,23 @@
 
   <header>
     <nav id="top">
-    <a href="#" ui-sref-active="active" ui-sref="home"><img src="./assets/images/HomeTownLogo2.png"></a>
+      <a href="#" ui-sref-active="active" ui-sref="home"><img src="./assets/images/HomeTownLogo2.png"></a>
     </nav>
-
 
     <nav id="navbar" class="navbar navbar-default navbar-fixed-bottom">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-<!--         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#" ui-sref-active="active" ui-sref="home"><img src="./assets/images/HomeTownLogo.png"></a>
-        </div> -->
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-          </ul>
-          <ul class="nav navbar-nav linkbottom">
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="newRecommendations">Add Recommendation</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="recommendations">Recommendations</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="showUser({id: users.user._id })">Profile</a></li>
+            <li ng-hide="users.checkLoggedIn()"><div id='super-secret'></div></li>
             <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="register">Register</a></li>
             <li ng-hide="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="login">Login</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref="home" ng-click="users.logout()">Logout</a></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+      </div>
     </nav>
   </header>
-  <section id="map">
-
-    <!-- <input type="text" placeholder="Filter" ng-model="search.city"> -->
-
-  </section>
   
   <main ui-view></main>
 

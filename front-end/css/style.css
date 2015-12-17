@@ -35,6 +35,27 @@ nav img {
   height: 25px;
 }
 
+#super-secret {
+  width: 175px;
+  height: 3px;
+}
+
+.navbar-nav {
+  float: none;
+  margin: 0 auto;
+  width: 527px;
+}
+
+.nav > li {
+  text-align: center !important;
+  /*float: none;*/
+  /*display: inline-block !important;*/
+}
+
+.container-fluid {
+    padding-right: 15px;
+}
+
 .panel-body {
   border: #585858 !important;
 }
@@ -57,10 +78,14 @@ img.profile-photo {
   padding-bottom: 40px;
 }
 
-#googlesearch {
+.search-query#googlesearch {
   width: 400px;
 }
 
 #searchbox {
   padding-top: 30px;
+}
+
+main {
+  margin-bottom: 100px;
 }
