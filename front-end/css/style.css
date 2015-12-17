@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.homepage-photo {
+  height: 550px;
+  width: 100%;
+}
+
 #navbar {
   margin-bottom: 0px;
   background-color: #EF4861;
