@@ -17,10 +17,10 @@
     Clear Filter
 </div>
 
-<h1>All Recommendations</h1>
+<h1 class="text-center">All Recommendations</h1>
 
-<div class="row">
-  <div class="col-xs-6 col-md-5">
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 text-center">
     <div class="panel panel-primary" ng-show="users.checkLoggedIn()" ng-repeat="recommendation in recommendations.all | filter:search">
       <div class="panel-heading">
         <h3 class="panel-title">{{ recommendation.category }}</h3>
