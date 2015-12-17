@@ -5,4 +5,15 @@
 
 #navbar {
   margin-bottom: 0px;
+  background-color: #EF4861;
+  border: none;
+}
+
+nav#top {
+  text-align: center;
+  padding: 15px;
+}
+
+nav img {
+  height: 25px;
 }

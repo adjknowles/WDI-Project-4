@@ -1,7 +1,7 @@
+<div id="googleMap" ng-show="users.checkLoggedIn()"></div>
+
 <section id="newRecommendations">
   <form name="recommendations.newRecommendations" class="form-horizontal" ng-submit="recommendations.add()" novalidate>
-
-    {{ recommendations.recommendation }}
 
     <select ng-model="recommendations.recommendation.category">
       <option value="Cafes">Cafes</option>

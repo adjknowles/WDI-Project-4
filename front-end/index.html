@@ -33,24 +33,29 @@
 
 
   <header>
-    <nav id="navbar" class="navbar navbar-default">
+    <nav id="top">
+    <a href="#" ui-sref-active="active" ui-sref="home"><img src="./assets/images/HomeTownLogo2.png"></a>
+    </nav>
+
+
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-bottom">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+<!--         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" ui-sref-active="active" ui-sref="home">HomeTown</a>
-        </div>
+          <a class="navbar-brand" href="#" ui-sref-active="active" ui-sref="home"><img src="./assets/images/HomeTownLogo.png"></a>
+        </div> -->
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav linkbottom">
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="newRecommendations">Add Recommendation</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="recommendations">Recommendations</a></li>
             <li ng-show="users.checkLoggedIn()"><a href="#" ui-sref-active="active" ui-sref="showUser({id: users.user._id })">Profile</a></li>
@@ -62,13 +67,9 @@
       </div><!-- /.container-fluid -->
     </nav>
   </header>
-  <section id="map" ng-controller="RecommendationsController as recommendations">
+  <section id="map">
 
-  <div id="googleMap" ng-show="users.checkLoggedIn()"></div>
-
-  <div class="col-sm-12" id="searchBox" ng-show="users.checkLoggedIn()">
-    <input type="text" id="googlesearch" class="col-sm-2 control-label" placeholder="Find a HomeTown">
-  </div>
+    <!-- <input type="text" placeholder="Filter" ng-model="search.city"> -->
 
   </section>
   

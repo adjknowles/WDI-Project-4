@@ -59,15 +59,6 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
     };
 
     self.map = new google.maps.Map(canvas, mapOptions);
-    var myLatLng = {lat: -25.363, lng: 131.044};
-    var marker = new google.maps.Marker({
-      position: myLatLng,
-      map: map,
-      title: 'Hello World!'
-    });
-
-    // To add the marker to the map, call setMap();
-    marker.setMap(map);
   }
 
   self.addPins = function(data){
@@ -82,7 +73,8 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
     var marker = new google.maps.Marker({
       position: myLatLng,
       map: self.map,
-      title: 'Hello World!'
+      title: 'Hello World!',
+      icon: 'http://i.imgur.com/MRUQlnT.png'
     });
 
     marker.addListener('click', function(){
@@ -113,8 +105,12 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
     // SearchBox event listener;
     google.maps.event.addListener(searchBox, 'place_changed', function() {
       self.place    = searchBox.getPlace();
+      console.log(self.place);
       self.recommendation.latitude = self.place.geometry.location.lat();
       self.recommendation.longitude = self.place.geometry.location.lng();
+      self.recommendation.city = self.place.address_components['2'].long_name;
+      self.recommendation.address = self.place.formatted_address;
+
 
       var newlatlong = new google.maps.LatLng(self.place.geometry.location.lat(),self.place.geometry.location.lng());
       self.map.setCenter(newlatlong);
@@ -131,5 +127,7 @@ function RecommendationsController(Recommendation, User, CurrentUser, TokenServi
   self.getRecommendations();
   self.getUsers();
   self.init();
+
+  // google.maps.event.addDomListener(window, 'load', self.init);
 
 }

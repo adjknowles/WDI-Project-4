@@ -1,4 +1,3 @@
-<h1>All Recommendations</h1>
 <!-- <div ng-show="users.checkLoggedIn()">
   <div ng-repeat="recommendation in recommendations.all">
   <h2>{{ recommendation.category }}</h2>
@@ -8,15 +7,30 @@
   </div>
 </div> -->
 
+<div id="googleMap" ng-show="users.checkLoggedIn()"></div>
 
+<div class="col-sm-12" id="searchBox" ng-show="users.checkLoggedIn()">
+  <input type="text" id="googlesearch" class="col-sm-2 control-label" placeholder="Find a HomeTown" ng-model="search.city">
+</div>
 
-<div class="panel panel-primary" ng-show="users.checkLoggedIn()" ng-repeat="recommendation in recommendations.all">
+<div ng-click="search = undefined">
+    Clear Filter
+</div>
+
+<h1>All Recommendations</h1>
+
+<div class="row">
+<div class="col-xs-6 col-md-4">
+<div class="panel panel-primary" ng-show="users.checkLoggedIn()" ng-repeat="recommendation in recommendations.all | filter:search">
   <div class="panel-heading">
     <h3 class="panel-title">{{ recommendation.category }}</h3>
   </div>
   <div class="panel-body">
     <h3>{{ recommendation.description }}</h3>
+    <h3>{{ recommendation.address }}</h3>
     <h3><a ng-href="{{ recommendation.url }}">{{ recommendation.url }}</a></h3>
     <h4>by: {{ recommendation.user.local.name }}</h4>
   </div>
+</div>
+</div>
 </div>
