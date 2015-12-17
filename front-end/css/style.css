@@ -56,3 +56,11 @@ div.hometext {
 img.profile-photo {
   padding-bottom: 40px;
 }
+
+#googlesearch {
+  width: 400px;
+}
+
+#searchbox {
+  padding-top: 30px;
+}

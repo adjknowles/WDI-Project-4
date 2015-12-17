@@ -9,12 +9,18 @@
 
 <div id="googleMap" ng-show="users.checkLoggedIn()"></div>
 
-<div class="col-sm-12" id="searchBox" ng-show="users.checkLoggedIn()">
-  <input type="text" id="googlesearch" class="col-sm-2 control-label" placeholder="Find a HomeTown" ng-model="search.city">
+<div class="container">
+  <div style="padding-top: 30px;" class="col-md-12 text-center">
+    <div id="searchBox" ng-show="users.checkLoggedIn()">
+      <input class="input-large search-query text-center" type="text" id="googlesearch" placeholder="Find a HomeTown" ng-model="search.city">
+    </div>
+  </div>
 </div>
 
-<div ng-click="search = undefined">
-    Clear Filter
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <div ng-click="search = undefined"><a ng-ref="#">Clear Search</a></div>
+  </div>
 </div>
 
 <h1 class="text-center">All Recommendations</h1>
@@ -35,3 +41,5 @@
     </div>
   </div>
 </div>
+
+<br><br><br><br><br>
