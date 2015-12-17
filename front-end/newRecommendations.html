@@ -3,29 +3,39 @@
 <section id="newRecommendations">
   <form name="recommendations.newRecommendations" class="form-horizontal" ng-submit="recommendations.add()" novalidate>
 
-    <select ng-model="recommendations.recommendation.category">
-      <option value="Cafes">Cafes</option>
-      <option value="Restaurants">Restaurants</option>
-      <option value="Pubs">Pubs</option>
-      <option value="Museums">Museums</option>
-      <option value="Attractions">Attractions</option>
-      <option value="Galleries">Galleries</option>
-      <option value="Parks">Parks</option>
-    </select>
+  <h1 class="text-center">Add Recommendation</h1>
 
-    <label for="inputDescription" class="col-sm-2 control-label">Description</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="recommendations.recommendation.description">
+    <div class="form-group">
+      <select ng-model="recommendations.recommendation.category">
+        <option value="Cafes">Cafes</option>
+        <option value="Restaurants">Restaurants</option>
+        <option value="Pubs">Pubs</option>
+        <option value="Museums">Museums</option>
+        <option value="Attractions">Attractions</option>
+        <option value="Galleries">Galleries</option>
+        <option value="Parks">Parks</option>
+      </select>
     </div>
 
-    <label for="inputWebsite" class="col-sm-2 control-label">Website</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputWebsite" placeholder="Website" ng-model="recommendations.recommendation.url">
+    <div class="form-group">
+      <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputDescription" placeholder="Description" ng-model="recommendations.recommendation.description">
+      </div>
     </div>
 
-    <label for="googlesearch" class="col-sm-2 control-label">Location</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="googlesearch" placeholder="Location" ng-model="recommendations.recommendation.location">
+    <div class="form-group">
+      <label for="inputWebsite" class="col-sm-2 control-label">Website</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputWebsite" placeholder="Website" ng-model="recommendations.recommendation.url">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="googlesearch" class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="googlesearch" placeholder="Location" ng-model="recommendations.recommendation.location">
+      </div>
     </div>
 
     <div class="form-group">
