@@ -1,9 +1,16 @@
-<div>
-  <div><h2>{{ users.showUser.local.name | uppercase }}</h2></div>
-  <div><img ng-src="{{ users.showUser.local.image }}" width="300"></div>
-  <div ng-repeat="recommendation in users.showUser.recommendations">
-    <h2>{{ recommendation.category }}</h2>
-    <h3>{{ recommendation.description }}</h3>
-    <a ng-href="{{ recommendation.url }}">Website</a>
+<div class="container">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <div><h2>{{ users.showUser.local.name | uppercase }}</h2></div>
+    <div><img class="profile-photo" ng-src="{{ users.showUser.local.image }}" width="300"></div>
+    <div class="panel panel-primary" ng-repeat="recommendation in users.showUser.recommendations">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ recommendation.category }}</h3>
+      </div>
+      <div class="panel-body">
+      <h3>{{ recommendation.description }}</h3>
+      <h3>{{ recommendation.address }}</h3>
+      <h3><a ng-href="{{ recommendation.url }}">Website</a></h3>
+      </div>
+    </div>
   </div>
 </div>

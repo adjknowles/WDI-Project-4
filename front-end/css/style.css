@@ -44,3 +44,7 @@ h2.home-title {
 div.hometext {
   margin: 0 auto;
 }
+
+img.profile-photo {
+  padding-bottom: 40px;
+}
