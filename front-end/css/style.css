@@ -17,3 +17,11 @@ nav#top {
 nav img {
   height: 25px;
 }
+
+.panel-body {
+  border: #585858 !important;
+}
+
+.panel {
+  border-color: #585858;
+}
