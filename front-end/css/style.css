@@ -1,3 +1,7 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 #googleMap {
   height: 400px;
   width: 100%;
@@ -29,4 +33,14 @@ nav img {
 
 .panel {
   border-color: #585858;
+}
+
+h2.home-title {
+  text-align: center;
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+div.hometext {
+  margin: 0 auto;
 }
