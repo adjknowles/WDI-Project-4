@@ -27,10 +27,11 @@ In this project I have used the following technologies:
 - JQuery
 - Node.js
 - Angular.js
--Google Maps/Places
+- Google Maps/Places
 - Bootstrap
 - MongoDB
 - Express
+- Animate CSS
 
 
 Approach taken:
@@ -74,6 +75,7 @@ There are a number of features I would have liked to have added or take further:
 - Added extra search features - for example, by Post Code - allowing you to find recommendations in a more specific location.
 - Having a current location feature - to show you any recommendations near you.
 - Added a photo uploader so that the users can upload their own image.
+- Add ratings and reviews to the recommendations. Each user can add their own.
 - Add additional cities.
 - Add additional information to the recommendation pages - provide extra knowledge for users of the site.
 - Refacter the code - make it dryer.
