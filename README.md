@@ -38,8 +38,7 @@ Approach taken:
 - Created a Trello board outlining what needed to be done, and depending on their importance, the order in which they needed to be executed.
 - Produced an ERD diagram, mapping out the models and their relationships with one another.
 - Created wireframes using Balsamiq, displaying how I imagined the website and its various pages to look.
-- I then created a few test projects. After setting up the first test without Devise, I created the second with a User model using Devise and a scaffolded Instrument and Lesson models.
-- Then I tested the relationships in the Rails console.
+- I then moved into the development phase and created the back-end API.
 - Once the basics of this was all working as expected, I created the main project, replicating the models created in the test.
 - I installed the Foundation gem and added some basic HTML structure and SCSS styling.
 - After this I concentrated on getting all the associations to work correctly.
@@ -65,19 +64,11 @@ If I had more time:
 
 There are a number of features I would have liked to have added or take further
 
-- I would have liked to add a calendar booking system - using the gem Bookable. Able to check the availability of the teacher when making a booking.
-- Create user roles and permissions using the Rolify and CanCan gems.
-- Search by Post Code - allowing you to find teachers closest to you.
-- Having a map with the location of your nearest teachers.
+- Added Facebook and Twitter authentication.
+- Added extra search features - for example, by Post Code - allowing you to find recommendations in a more specific location.
+- Having a current location feature - to show you any recommendations near you.
 - Added a photo uploader so that the users can upload their own image.
-- Create an online portal for teachers and students to communicate inbetween lessons - including online chat, and an area for notes/recommendations.
-- Add a rating/comments system to find the best teachers.
-- Create an online payment system for lessons - so that no payment has to be made at the lesson itself.
 - Add additional cities.
-- Add additional information to the profile pages of the teachers to help the students to decide who to have lessons with.
+- Add additional information to the recommendation pages - provide extra knowledge for users of the site.
 - Refacter the code - make it dryer.
-
-- Plans to branch out/spin-offs - such as:
-  - Findr Plumber
-  - Findr Gardener
-  - Findr Window Cleaner
+- As always - go Global - HomeTowns are everywhere!
