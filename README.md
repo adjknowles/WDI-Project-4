@@ -15,6 +15,7 @@ The Idea:
 - But of course, you can also share those popular ones as well. It's all about sharing your local knowledge with others.
 - Then, when you are planning on visiting a new location, or even somewhere you have visited before and think you know pretty well, you can come to HomeTown and checkout that location and what it has to offer and see the recommendations that people have added.
 
+
 Technologies used:
 
 In this project I have used the following technologies:
@@ -39,11 +40,13 @@ Approach taken:
 - Produced an ERD diagram, mapping out the models and their relationships with one another.
 - Created wireframes using Balsamiq, displaying how I imagined the website and its various pages to look.
 - I then moved into the development phase and created the back-end API.
-- Once the basics of this was all working as expected, I created the main project, replicating the models created in the test.
-- I installed the Foundation gem and added some basic HTML structure and SCSS styling.
-- After this I concentrated on getting all the associations to work correctly.
-- Once the majority of the functionality was working, I installed the Ransack gem to allow me to add search features to my app.
-- I then went back to the styling - using Foundation to make the app look as good as possible.
+- I ran some tests in the mongo database and Insomnia.
+- Once this was all working as expected, I moved onto the front-end.
+- I downloaded Bootstrap as my front-end CSS framework, and created some basic HTML structure and CSS styling.
+_ I then focused on implementing the Google Maps/Places API within my site.
+- After this I tested the connection between the API (back-end) and front-end, making sure I could pull out the data from the database.
+- Then I moved on to creating the partial view pages.
+- I then went back to the styling - working my way through the different pages to get them looking as I had imagined.
 
 
 Challenges:
