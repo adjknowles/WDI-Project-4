@@ -6,6 +6,7 @@ Node.js and Angular.js Website
 
 Hometown
 
+
 The Idea:
 
 - Everybody has a hometown or somewhere they know really well or call home.
@@ -67,7 +68,7 @@ Challenges:
 
 If I had more time:
 
-There are a number of features I would have liked to have added or take further
+There are a number of features I would have liked to have added or take further:
 
 - Added Facebook and Twitter authentication.
 - Added extra search features - for example, by Post Code - allowing you to find recommendations in a more specific location.
