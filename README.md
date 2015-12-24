@@ -55,16 +55,7 @@ Challenges:
 
 - One of the main challenges I had was implementing the Google Maps/Places API. This took up more of my time than I had expected. Implementing it within the recommendations controller was also a change from the last project.
 - I chose to use Bootstrap for my front-end css framework, one that I haven't used in any depth before. This definitely had its PROS and CONS. Some parts were easy to work with, making changes relatively easy. However, other parts of it were incredibly hard to override or change.
-
-
-
-
-
-
-
-
-
-
+- The Facebook authentication/login was also a challaenge and a feature that I was unable to implement on the initial deployment.
 
 
 If I had more time:
@@ -73,6 +64,7 @@ There are a number of features I would have liked to have added or take further:
 
 - Added Facebook and Twitter authentication.
 - Added extra search features - for example, by Post Code - allowing you to find recommendations in a more specific location.
+- Make the app more mobile responsive.
 - Having a current location feature - to show you any recommendations near you.
 - Added a photo uploader so that the users can upload their own image.
 - Add ratings and reviews to the recommendations. Each user can add their own.
