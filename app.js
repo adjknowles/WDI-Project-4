@@ -36,12 +36,14 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(cors());
 app.use(passport.initialize());
+app.use(express.static(__dirname + "/public"));
 
 app.use('/api', expressJWT({ secret: secret })
   .unless({
     path: [
-      { url: '/api/login', methods: ['POST'] },
-      { url: '/api/register', methods: ['POST'] }
+      { url: '/api/login',    methods: ['POST'] },
+      { url: '/api/register', methods: ['POST'] },
+      { url: '/',             methods: ['GET'] }
     ]
   }));
 
@@ -102,4 +104,8 @@ app.post('/auth/facebook', function(req, res) {
 var routes = require('./config/routes');
 app.use("/api", routes);
 
-app.listen(3000);
+app.get('/', function(req, res) {
+  res.sendFile('/index.html');
+});
+
+app.listen(process.env.PORT || 3000);
