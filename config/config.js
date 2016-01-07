@@ -1,6 +1,6 @@
 module.exports = {
   'secret': 'jsonwebtokensaregreat',
-  'database': process.env.MONGO_LAB || 'mongodb://localhost:27017/hometown',
+  'database': process.env.MONGOLAB_URI || 'mongodb://localhost:27017/hometown',
   oauth: {
     facebook: {
       accessTokenUrl: 'https://graph.facebook.com/v2.5/oauth/access_token',
