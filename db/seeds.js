@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
+var config   = require("../config/config");
 
-var databaseURL = 'mongodb://localhost:27017/hometown';
-mongoose.connect(databaseURL);
+mongoose.connect(config.database);
 
 var Recommendation = require("../models/recommendation"); 
 var User    = require("../models/user");
