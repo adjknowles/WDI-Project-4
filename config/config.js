@@ -1,5 +1,5 @@
 module.exports = {
-  'secret': 'jsonwebtokensaregreat',
+  'secret': process.env.HOMETOWN_SECRET,
   'database': process.env.MONGOLAB_URI || 'mongodb://localhost:27017/hometown',
   oauth: {
     facebook: {
