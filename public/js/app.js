@@ -1,6 +1,6 @@
 angular
   .module('hometown', ['ngResource', 'angular-jwt', 'ui.router', 'satellizer'])
-  .constant('API', 'http://localhost:3000/api')
+  .constant('API', '/api')
   .config(MainRouter)
   
   .config(function($httpProvider){
@@ -9,7 +9,7 @@ angular
   .config(function($authProvider) {
     $authProvider.facebook({ 
       clientId: 'facebookKey',
-      url: 'http://localhost:3000/api/auth/facebook'
+      url: '/api/auth/facebook'
     })
   });
 
