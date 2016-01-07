@@ -17,8 +17,7 @@ var Recommendations= require('./models/recommendation')
 var User           = require('./models/user');
 var secret         = require('./config/config').secret;
 
-var databaseUrl = 'mongodb://localhost:27017/hometown'
-mongoose.connect(databaseUrl);
+mongoose.connect(config.database);
 
 require('./config/passport')(passport);
 
