@@ -1,4 +1,4 @@
-# WDI-Project-4 #
+# WDI-Project-4
 
 Fourth Project
 
@@ -7,7 +7,7 @@ Node.js and Angular.js Website
 Hometown
 
 
-The Idea:
+##The Idea:
 
 - Everybody has a hometown or somewhere they know really well or call home.
 - No-one knows your hometown like you do. 
@@ -16,10 +16,35 @@ The Idea:
 - But of course, you can also share those popular ones as well. It's all about sharing your local knowledge with others.
 - Then, when you are planning on visiting a new location, or even somewhere you have visited before and think you know pretty well, you can come to HomeTown and checkout that location and what it has to offer and see the recommendations that people have added.
 
+##Screenshots:
 
-Technologies used:
+The homepage.
+![homepage](./images/image1.png)
 
-In this project I have used the following technologies:
+Register.
+![register](./images/image2.png)
+
+Login.
+![login](./images/image3.png)
+
+Searching for a hometown.
+![search](./images/image4.png)
+
+The search results.
+![results](./images/image5.png)
+
+Viewing the recommendation.
+![viewing](./images/image6.png)
+
+Viewing all recommendations by this user.
+![user-recommendations](./images/image7.png)
+
+Adding a recommendation.
+![add](./images/image8.png)
+
+##Technologies used:
+
+###In this project I have used the following technologies:
 
 - HTML5
 - CSS3
@@ -34,7 +59,7 @@ In this project I have used the following technologies:
 - Animate CSS
 
 
-Approach taken:
+##Approach taken:
 
 - Brainstormed some possible ideas
 - Made a plan using the chosen idea
@@ -51,16 +76,16 @@ _ I then focused on implementing the Google Maps/Places API within my site.
 - I then went back to the styling - working my way through the different pages to get them looking as I had imagined.
 
 
-Challenges:
+##Challenges:
 
 - One of the main challenges I had was implementing the Google Maps/Places API. This took up more of my time than I had expected. Implementing it within the recommendations controller was also a change from the last project.
 - I chose to use Bootstrap for my front-end css framework, one that I haven't used in any depth before. This definitely had its PROS and CONS. Some parts were easy to work with, making changes relatively easy. However, other parts of it were incredibly hard to override or change.
 - The Facebook authentication/login was also a challaenge and a feature that I was unable to implement on the initial deployment.
 
 
-If I had more time:
+##If I had more time:
 
-There are a number of features I would have liked to have added or take further:
+###There are a number of features I would have liked to have added or take further:
 
 - Added Facebook and Twitter authentication.
 - Added extra search features - for example, by Post Code - allowing you to find recommendations in a more specific location.
